@@ -1,0 +1,14 @@
+package com.collaborait.day9;
+
+public class MoreExample {
+	
+	public static void main(String [] args) {
+		
+	}
+	
+	public static void sampleTestforPOJO() {
+		ArrayList<Student> arrayList = new ArrayList<Student>();
+		
+	}
+
+}

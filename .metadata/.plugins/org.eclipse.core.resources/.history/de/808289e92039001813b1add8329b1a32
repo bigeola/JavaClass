@@ -1,0 +1,33 @@
+package com.collabrait.day10;
+
+import java.util.Scanner;
+import java.util.Vector;
+
+public class VectorExample2 {
+
+	public static void main(String[] args) {
+		vectorDemo();
+	}
+	
+	public static void vectorDemo() {
+		
+		Vector<Integer> vec2 = new Vector<>();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("What is the size of your Vector?");
+		int size = sc.nextInt();
+		
+//		vec2.addElement(1);
+//		vec2.setElementAt(5, 0);
+		
+		for(int i=0; i<size; i++) {
+			System.out.println("Add a value to your vector");
+			vec2.addElement(sc.nextInt());
+		}
+		
+//		System.out.println(vec2);
+		
+		
+	}
+}

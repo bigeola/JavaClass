@@ -1,0 +1,29 @@
+package Maps;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class HashMapSorting {
+	
+	public static void main(String[] args) {
+		
+	}
+	
+	public static void hashTreeMap() {
+		Map<Integer, String> htr = new HashMap<Integer, String>();
+		
+		htr.put(1234, "Milan");
+		htr.put(1234, "Mike");
+		htr.put(1423, "Charles");
+		htr.put(2134, "Huang");
+		htr.put(2143, "Oscar");
+		
+		Map<Integer, String> htr1 = new TreeMap<Integer, String>(htr);
+		
+		System.out.println(htr);
+		
+		
+	}
+
+}

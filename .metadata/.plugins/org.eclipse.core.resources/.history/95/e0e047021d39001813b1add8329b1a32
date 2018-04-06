@@ -1,0 +1,17 @@
+package com.collabrait.day10;
+
+import java.util.Scanner;
+
+public class VectorExample2 {
+
+	public static void main(String[] args) {
+		vectorDemo();
+	}
+	
+	public static void vectorDemo() {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("What is the size of your Vector?");
+		int size = sc.nextInt();
+	}
+}

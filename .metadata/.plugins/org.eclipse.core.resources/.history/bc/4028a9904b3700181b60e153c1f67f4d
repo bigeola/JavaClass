@@ -1,0 +1,13 @@
+package com.collabrait.class8;
+
+public class FileManagementApp {
+	
+	public static void main(String [] args) {
+		CreateFile cf = new CreateFile();
+		
+		cf.fileCreated();
+		
+		
+	}
+
+}

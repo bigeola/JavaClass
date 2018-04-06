@@ -1,0 +1,65 @@
+package com.collabrait.day10;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Iterator;
+
+public class linkedListWithLoop {
+
+	public static void main(String[] args) {
+		linkedForLoop();
+	}
+
+	static void linkedForLoop() {
+		List<Integer> lrr = new LinkedList<Integer>();
+		lrr.add(0);
+		lrr.add(1);
+		lrr.add(2);
+		lrr.add(3);
+		lrr.add(4);
+		lrr.add(5);
+		lrr.add(6);
+		lrr.add(7);
+		lrr.add(8);
+		lrr.add(9);
+
+		int i;
+
+		System.out.println("Printing the values using for loop");
+		// Creating a for loop
+		for (i = 0; i < lrr.size(); i++) {
+			System.out.println(lrr.get(i));
+		}
+
+		System.out.println("\nPrinting the values using enhanced for loop");
+		for (int j : lrr) {
+			System.out.println(lrr.get(j));
+
+		}
+
+		System.out.println("\nPrinting the values using while loop");
+		int num = lrr.size() - 1;
+
+		while (num >= 0) {
+			System.out.println(lrr.get(num));
+			num--;
+
+		}
+
+		// Using iterator
+		ListIterator<Integer> k = lrr.listIterator();
+
+		System.out.println("\nUsing ListIterator");
+		while (k.hasNext()) {
+			System.out.print(k.next());
+		}
+
+		System.out.println("\nUsing Iterator");
+		Iterator it = lrr.iterator();
+		while (it.hasNext()) {
+			System.out.print(it.next());
+		}
+
+	}
+}

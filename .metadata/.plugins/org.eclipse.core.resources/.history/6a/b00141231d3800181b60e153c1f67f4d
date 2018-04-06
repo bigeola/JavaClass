@@ -1,0 +1,17 @@
+package com.collaborait.day9;
+
+import java.util.ArrayList;
+
+public class MoreExample {
+	
+	public static void main(String [] args) {
+		
+	}
+	
+	public static void sampleTestforPOJO() {
+		ArrayList<Student> arrayList = new ArrayList<Student>();
+		
+		arrayList.add(new Student ("Mike", ));
+	}
+
+}

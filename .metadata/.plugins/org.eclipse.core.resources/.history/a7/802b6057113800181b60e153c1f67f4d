@@ -1,0 +1,39 @@
+package com.collaborait.day9;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class SimpleArrayList {
+	
+	// Syntax for declaring an array list
+	// The static key word is used because it is a global variable. 
+	// In order to make it accessible to another method.
+	
+	static ArrayList<String> arrList = new ArrayList<>();
+	
+	public static void main (String [] args) {
+		ArrayListExample();
+		
+	}
+	
+	
+	public static void ArrayListExample() {
+		arrList.add("MIKE");
+		arrList.add("Meg");
+		arrList.add("Victor");
+		arrList.add("Jack");
+		arrList.add("Milan");
+		arrList.add("Raja");
+		System.out.println(arrList);
+		
+		// Using a Scanner to populate an array.
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a name.");
+		arrList.add(sc.nextLine());
+		System.out.println(arrList);
+		
+		arrList.remove(2);
+		
+	}
+
+}

@@ -1,0 +1,39 @@
+package com.collabrait.day10;
+
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Vector;
+
+public class VectorExample {
+	
+	public void main(String[] args) {
+		vectorDemo();
+	}
+	
+	public static void vectorDemo() {
+		
+		Scanner sc1 = new Scanner(System.in);
+		
+		Vector<Integer> vec = new Vector<>();
+		
+		System.out.println("How many Vector fields will you like to input:");
+		int size = sc1.nextInt();
+		
+		for(int num=0; num < size; num++) {
+			System.out.println("Enter an inter value: ");
+			vec.addElement(sc1.nextInt());
+			
+		}	
+		sc1.close();
+		
+		System.out.println(vec);
+			Iterator i = vec.iterator();
+//			
+//			System.out.println("\nPrinting the values of the vector");
+//			while(i.hasNext()) {
+//				System.out.println(i.next());
+//			}
+//		
+	}
+
+}

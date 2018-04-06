@@ -1,0 +1,15 @@
+package com.collabrait.day7;
+
+public class MyExceptionNumberDemo {
+	
+	public static void main(String[] args) {
+		try {
+			System.out.println("Trying my number ");
+			throw new MyExceptionNumberExample(3,5);
+		}
+		catch(MyExceptionNumberExample exp){
+			System.out.println("catch block");
+			System.out.println(exp);
+		}
+	}
+}

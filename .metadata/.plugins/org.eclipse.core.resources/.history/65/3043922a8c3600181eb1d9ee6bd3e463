@@ -1,0 +1,17 @@
+package com.collabrait.day7;
+
+public class MyExceptionNumberExample extends Exception{
+	int num1;
+	int num2;
+	int num3;
+	
+	public MyExceptionNumberExample(int num1, int num2) {
+		 num3 = num1 + num2;
+	}
+	
+	int myNum() {
+		return num3;
+		
+	}
+
+}

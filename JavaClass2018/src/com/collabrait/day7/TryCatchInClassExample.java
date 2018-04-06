@@ -1,0 +1,39 @@
+package com.collabrait.day7;
+
+import java.util.Scanner;
+
+public class TryCatchInClassExample {
+	
+	
+	
+	public static void main(String[] args) {
+		
+		aritTryCatch();
+	}
+	
+	public static void aritTryCatch() {
+		Scanner sc = new Scanner(System.in);
+		int num1;
+		int num2;
+		
+		System.out.println("Enter a number");
+		num1 = sc.nextInt();
+		
+		System.out.println("Enter a number");
+		num2 = sc.nextInt();
+		sc.close();
+		
+		
+		try {
+			num2 = num2/num1;
+			
+			System.out.println(num2);
+			System.out.println("This is the try block");
+		} 
+		catch (ArithmeticException e){
+			System.out.println("Please do not divide numbers with zero");
+		}
+		System.out.println("This is the end of single try-catch block");
+	}
+
+}
