@@ -1,0 +1,95 @@
+
+<ui:composition mlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<h:head>
+		<title></title>
+		<f:loadBundle basename="com.teamrg.bean.message" var="msg" />
+		
+
+
+	</h:head>
+
+	<h:body>
+
+		<p:dialog style=" background:white!important;"
+			widgetVar="dcdlookUpDlg" height="500" width="700" appendTo="@(body)">
+			
+			<h:form id="lookupDcdForm">
+
+				<h:outputText value="Lookup DCD"
+					style="font-family:italic; font-size:20px " />
+
+
+
+				<br />
+				<br />
+
+
+
+				<div style="width: 5000px; border-bottom: 3px solid blue;"></div>
+
+				<br />
+				<br />
+
+				<h:outputText value="Make Selection(s), and click Apply" />
+
+				<br />
+				<br />
+				<table
+					style="width: 400px; font-family: Arial, Helvetica, sans-serif; color: #696969; font-size: 8pt; text-align: center;"
+					id="radioDT">
+					<tr
+						style="text-align: center; background-color: #00008B; color: white;">
+						<th class="order-table-header">Select</th>
+						<th class="order-table-header">DCD</th>
+						<th class="order-table-header">Description</th>
+						<th class="order-table-header">ARS Mode</th>
+					</tr>
+					<tbody>
+						<ui:repeat value="#{lookupDcd.ls}" var="lud" varStatus="status">
+							<tr
+								style="background-color: #{status.index% 2== 0? 'white': (status.index% 2!= 0? '#D3D3D3': 'white')}">
+
+								<td><h:panelGroup>
+										<input type="radio" value="#{lud.selected}" id="radioButton"
+											name="radAnswer" />
+
+										<!--This Section allows you to   -->
+										<f:attribute name="val" value="#{lud.dcd}" />
+										<f:attribute name="val2" value="#{lud.desc}" />
+										<p:ajax event="click" listener="#{lookupDcd.apply}" update=":copyProjForm:dcd"/>
+
+									</h:panelGroup></td>
+
+
+
+								<td><h:outputText value="#{lud.dcd}" /></td>
+								<td style="text-align: left;"><h:outputText
+										value="#{lud.desc}" /></td>
+								<td><h:outputText value="#{lud.asc}" /></td>
+							</tr>
+						</ui:repeat>
+					</tbody>
+				</table>
+
+				<br />
+
+				<p:commandButton value="Apply" onclick="dcdlookUpDlg.hide();" >
+
+				</p:commandButton>
+
+				<p:spacer width="5">
+				</p:spacer>
+				<p:commandButton value="Cancel" onclick="dcdlookUpDlg.hide();">
+				</p:commandButton>
+			</h:form>
+
+			<br />
+		</p:dialog>
+
+	</h:body>
+</ui:composition>

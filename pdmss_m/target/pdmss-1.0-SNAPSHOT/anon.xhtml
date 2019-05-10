@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title></title>
+
+	<style>
+.DataTable thead {
+	background-position: top;
+	background-color: blue; <!-- #000080 -->
+	background-repeat: repeat-x;
+}
+
+.DataTable .TextLink {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.DataTable th.ui-state-default {
+	background-color: rgba(0, 0, 0, 0);
+	font-family: "Verdana";
+	font-size: 11px;
+	background-image: none;
+	color: #FFFFFF;
+	border: solid 1px #828FB5;
+	text-decoration: none;
+	text-shadow: none;
+	box-shadow: none;
+	color: #FFFFFF;
+}
+
+.first-row {
+	background-color: #ffffff !important;
+	background-image: none !important;
+	color: #000000 !important;
+}
+
+.second-row {
+	background-color: #F5F5F5 !important;
+	background-image: none !important;
+	color: #000000 !important;
+}
+</style>
+</h:head>
+
+<h:body>
+
+
+
+
+	<h:form>
+
+		<p:dataTable id="ProductionNumberList" var="pnl" class="Datatable"
+			value="#{listOfProdNum.apnvo}" rowKey="#{pnl.id}"
+			selection="#{listOfProdNum.selectedapnvos}" immediate="true"
+			stickyHeader="true" scrollable="true" scrollHeight="700" height="700"
+			style="width:1000px;align:center;" rowIndexVar="rowIndex"
+			rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'first-row' : 'second-row'}">
+
+			<p:column selectionMode="multiple"
+				style="width:16px;text-align:center;" headerText="Select" />
+
+			<p:column headerText="DCD" style="width:20px;text-align:center"
+				sortBy="#{pnl.wpnDsignCd}">
+				<h:outputText value="#{pnl.wpnDsignCd}" />
+			</p:column>
+
+			<p:column headerText="DCD Description"
+				style="width:10px;text-align:center" sortBy="#{pnl.dscrpTx}">
+				<h:outputText value="#{pnl.dscrpTx}" />
+			</p:column>
+
+			<p:column headerText="Control Number"
+				style="width:20px;text-align:center" sortBy="#{pnl.prodCtlID}">
+				<h:outputText value="#{pnl.prodCtlID}" />
+			</p:column>
+
+			<p:column headerText="Job Designator"
+				style="width:20px;text-align:center" sortBy="#{pnl.jobDesiCd}">
+				<h:outputText value="#{pnl.jobDesiCd}" />
+			</p:column>
+			<p:column headerText="Std Prod Plan"
+				style="width:20px;text-align:center" sortBy="#{pnl.stdPlnFlg}">
+				<h:outputText value="#{pnl.stdPlnFlg}" />
+			</p:column>
+			<p:column headerText="Last Updated By"
+				style="width:30px;text-align:center" sortBy="#{pnl.lstUpdNm}">
+				<h:outputText value="#{pnl.lstUpdNm}" />
+			</p:column>
+			<p:column headerText="Last Updated On"
+				style="width:30px;text-align:center" sortBy="#{pnl.lstUpdTmDt}">
+				<h:outputText value="#{pnl.lstUpdTmDt}">
+					<f:convertDateTime locale="en" timeStyle="short" type="both"
+						dateStyle="full" />
+				</h:outputText>
+			</p:column>
+
+		</p:dataTable>
+	</h:form>
+
+
+</h:body>
+</html>

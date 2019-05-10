@@ -1,0 +1,27 @@
+for (int i = 1; i < 25; i++) {
+			Hashtable row = new Hashtable<>();
+			row.put("dcd", "B" + i);
+			row.put("desc", "Test" + i);
+			ls.add(row);
+		}
+		
+		
+		// lookupDcd.xhtml datatable working
+		<p:dataTable id="lookupDcd" selection="#{lookupDcd.selection}"
+			var="lud" value="#{lookupDcd.ls}" rowKey="lud.dcd" style="width:500px">
+
+			<p:column style="text-align:center; width:70px; border-color:white; " headerText="Select"
+				selectionMode="multiple" >
+			</p:column>
+
+			<p:column headerText="DCD" style="text-align:center; width:70px; border-color:white; " >
+				#{lud.dcd} 
+			</p:column>
+
+			<p:column headerText="DCD Description"
+				style="text-align:left; width:200px; border-color:white; bgcolor:blue">
+				#{lud.desc}
+			</p:column>
+
+
+		</p:dataTable>

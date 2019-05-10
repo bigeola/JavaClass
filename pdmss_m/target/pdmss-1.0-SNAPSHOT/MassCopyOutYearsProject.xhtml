@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title></title>
+</h:head>
+
+<h:body>
+
+
+	<h:form>
+		<br />
+
+		<h:outputText value="Mass Copy Out Year Projects" style="font: italic"/>
+
+
+
+		<br />
+		<br />
+
+
+
+		<div style="width: 5000px; border-bottom: 3px solid blue;"></div>
+
+		<br />
+		<br />
+
+
+
+		<h:outputText
+			value="Enter data for the the project to be copied. Template Networks cannot be copied." />
+		<br />
+
+		<h:outputText
+			value="Enter data for target Project(s) creation. Delay in days." />
+		<br />
+
+		<h:outputText
+			value="Enter a new Weapon ID for each Project to be created in a comma separated list." />
+		<br />
+		<br />
+
+
+
+		<!-- Command Button Section -->
+		<p:commandButton value="Copy" action="s" />
+		<p:spacer width="2" />
+		<p:commandButton value="View Mass Copy Projects Queue" action="s" />
+		<p:spacer width="2" />
+		<p:commandButton value="Cancel" action="s" />
+
+		<br />
+		<br />
+
+
+		<!-- Projects to copy from section -->
+
+
+		<p:fieldset legend="Project(s) to copy from:">
+
+			<b> <h:outputText value="Project Type:" />
+			</b>
+			<p:selectOneMenu value="" style="width:125px;  vertical-align:middle">
+				<f:selectItem itemValue="" itemLabel="" />
+				<f:selectItem itemValue="Brazil" itemLabel="Brazil" />
+				<f:selectItem itemValue="France" itemLabel="France" />
+				<f:selectItem itemValue="India" itemLabel="India" />
+				<f:selectItem itemValue="Turkey" itemLabel="Turkey" />
+
+			</p:selectOneMenu>
+			<p:spacer width="4" />
+
+
+
+			<B><p:commandLink action="s" value="DCD:"
+					style="vertical-align:middle; color:Blue" /></B>
+			<p:spacer width="4" />
+			<p:inputText value="" />
+			<p:spacer width="4" />
+
+			<B><p:commandLink action="s" value="Fiscal Year:"
+					style="color:Blue" /></B>
+			<p:spacer width="4" />
+			<p:inputText value="" />
+			<p:spacer width="4" />
+
+			<B><p:commandLink action="s" value="Weapon ID:"
+					style="color:Blue" /></B>
+			<p:spacer width="4" />
+			<p:inputText value="" />
+
+
+		</p:fieldset>
+
+
+		<br />
+		<br />
+
+
+
+
+
+
+		<!-- Projects to Copy to Section -->
+		<p:fieldset legend="Project(s) to copy to:">
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputText value="Weapon ID(s): " />
+				<p:scrollPanel style="width:210px;height:80px"></p:scrollPanel>
+
+
+
+				<h:outputText value="First Planned Arival Date: " />
+				<h:inputText value="" />
+
+				<h:outputText value="Total Projects: " />
+				<h:inputText value="" />
+
+				<h:outputText value="Batch Size: " />
+				<h:inputText value="" />
+
+				<h:outputText value="Induction Interval: " />
+				<h:inputText value="" />
+			</h:panelGrid>
+		</p:fieldset>
+
+	</h:form>
+
+</h:body>
+</html>

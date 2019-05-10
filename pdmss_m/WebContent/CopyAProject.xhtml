@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title></title>
+	<f:loadBundle basename="com.teamrg.bean.message" var="msg" />
+
+
+</h:head>
+
+<h:body>
+	<ui:composition template="/pdmss-ssda-template.xhtml">
+		<ui:define name="content">
+			<ui:include src="/lookupDCD.xhtml" />
+			<ui:include src="/lookupFiscalYear.xhtml" />
+			<h:form id="copyProjForm">
+
+
+				<h:outputText value="#{msg.cp1}"
+					style="font:italic; font-size:20px " />
+
+
+
+				<br />
+				<br />
+
+
+
+				<div style="width: 5000px; border-bottom: 3px solid blue;"></div>
+
+				<br />
+				<br />
+
+
+
+				<h:outputText
+					value="Enter data for the the project to be copied, and for the destination Project." />
+				<br />
+
+				<h:outputText value="Template Projects cannot be copied." />
+				<br />
+
+				<h:outputText value="#{msg.cp4}" />
+				<br />
+				<br />
+
+
+
+
+
+				<br />
+				<br />
+
+
+				<!-- Projects to copy from section -->
+
+
+				<p:fieldset legend="Project to copy from: ">
+
+					<b> <h:outputText value="Type:" />
+					</b>
+					<p:selectOneMenu value="#{cop.type}" binding="#{cop.inputType}"
+						style="width:125px;  vertical-align:middle" immediate="true">
+
+						<f:selectItem itemValue="Not Specified" itemLabel="Not Specified" />
+						<f:selectItem itemValue="DUMMY" itemLabel="DUMMY" />
+						<f:selectItem itemValue="END ITEM" itemLabel="END ITEM" />
+						<f:selectItem itemValue="OUT YEAR" itemLabel="OUT YEAR" />
+
+
+
+					</p:selectOneMenu>
+					<p:spacer width="4" />
+
+
+
+					<B><p:commandLink onclick="PF('dcdlookUpDlg').show();"
+							value="DCD:" style="vertical-align:middle; color:Blue; " /></B>
+					<p:spacer width="4" />
+					<p:inputText id="dcd" binding="#{cop.inputDcd}" value="#{cop.dcd}" style="width:55px"
+						readonly="true" immediate="true" />
+					<p:spacer width="4" />
+
+
+					
+					
+					<B><p:commandLink   value="Fiscal Year" immediate="true"
+							actionListener="#{cop.buttonAction}" ajax="true" style="vertical-align:middle; color:Blue;"/>
+</B>
+
+					<p:spacer width="4" />
+					<p:inputText id="fsy" value="#{cop.fisYear}" style="width:55px" binding="#{cop.inputFisYear}"
+						readonly="true" />
+					<p:spacer width="4" />
+
+					<B><p:commandLink id="wpnID" value="Weapon ID:" style="color:Blue" onclick="PF('fisyearlookUpDlg').show();"/></B>
+					<p:spacer width="4" />
+					<p:inputText value="#{cop.wpnId}" style="width:55px"
+						readonly="true" />
+
+
+				</p:fieldset>
+
+
+				<!-- Projects to Copy to Section -->
+				<p:fieldset legend="Project to copy to: ">
+					<h:panelGrid columns="2" cellpadding="5">
+
+						<h:outputText value="Weapon ID: " />
+						<h:inputText value="#{cop.wpnId}" style="width:55px; text-transform:uppercase" />
+
+						<h:outputText value="Project Type: " />
+						<p:selectOneMenu value="#{cop.projType}"
+							style="width:125px;  vertical-align:middle">
+
+							<f:selectItem itemValue="" itemLabel="" />
+							<f:selectItem itemValue="DUMMY" itemLabel="DUMMY" />
+							<f:selectItem itemValue="END ITEM" itemLabel="END ITEM" />
+							<f:selectItem itemValue="OUT YEAR" itemLabel="OUT YEAR" />
+
+						</p:selectOneMenu>
+
+						<h:outputText value="*Planned Arival Date: " />
+						<h:inputText value="#{cop.planArrDate}" required="true"
+							style="width:220px; " />
+
+
+						<h:outputText value="Project Description: " />
+						<p:inputTextarea rows="5" cols="40" style="text-transform:uppercase"/>
+
+					</h:panelGrid>
+				</p:fieldset>
+
+
+				<!-- Data to be copied  Section-->
+				<p:fieldset legend="Data to be copied: ">
+
+
+					<p:selectOneRadio id="console" layout="grid" columns="1">
+						<f:selectItem itemLabel="Project Information Only" />
+						<BR />
+						<f:selectItem
+							itemLabel="Project Information and Active Network Information Only" />
+						<BR />
+						<f:selectItem
+							itemLabel="Project Information, Active Network Information, and Active Network PDM /MOD/ Temp Work Packages" />
+					</p:selectOneRadio>
+
+
+				</p:fieldset>
+				<h:outputText value="#{msg.cp17}" />
+
+				<BR />
+				<BR />
+
+
+				<!-- Command Button Section -->
+				<p:commandButton value="Copy" />
+				<p:spacer width="2" />
+				<p:commandButton value="Cancel" />
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

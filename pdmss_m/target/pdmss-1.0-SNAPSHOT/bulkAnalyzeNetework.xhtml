@@ -1,0 +1,199 @@
+<!-- 
+// **************************************************************************
+// bulkAnalyzeNetworks.xhtml
+// **************************************************************************
+// Change Log
+//
+// Date: 12 JUL 2018
+// Name: Desmond Keyaka
+// Desc: Created
+// **************************************************************************
+ -->
+
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head></h:head>
+
+<h:body>
+	<ui:composition template="/pdmss-ssda-template.xhtml">
+		<ui:define name="content">
+			<h:form id="blkAnaNetForm" styleClass="form">
+				<h:outputText styleClass="title"
+					value="#{pdmssMsg['pdmss-message.BULKANANET_H']}">
+				</h:outputText>
+				<br />
+				<br />
+				<hr style="border: 1px solid blue;" />
+				<br />
+				<h:outputText value="#{pdmssMsg['pdmss-message.BULKANANET_1']}" />
+				<br />
+				<p:spacer width="0" height="5px" />
+				<p:fieldset class="boldText"
+					legend="#{pdmssMsg['pdmss-message.BULKANANET_2']}">
+					<h:panelGrid
+						style="text-align: center; position: relative; left:500px;"
+						border="0" columns="1" cellpadding="1" cellspacing="1">
+						<h:outputText value="#{pdmssMsg['pdmss-message.BULKANANET_3']}" />
+						<h:selectOneRadio id="active" value=" ">
+							<f:selectItem
+								itemLabel="#{pdmssMsg['pdmss-message.BULKANANET_4']}" />
+							<f:selectItem
+								itemLabel="#{pdmssMsg['pdmss-message.BULKANANET_5']}" />
+							<f:selectItem
+								itemLabel="#{pdmssMsg['pdmss-message.BULKANANET_6']}" />
+						</h:selectOneRadio>
+						<p:selectOneMenu id="drpDown" value=" ">
+							<p:ajax event="itemSelect" />
+							<f:selectItems value=" "></f:selectItems>
+						</p:selectOneMenu>
+					</h:panelGrid>
+
+					<p:spacer width="0" height="5px" />
+					<p:fieldset class="boldText"
+						legend="#{pdmssMsg['pdmss-message.BULKANANET_7']}">
+						<h:panelGrid
+							style="text-align: center; position: relative; left:300px;"
+							border="0" columns="1" cellpadding="1" cellspacing="1">
+
+							<h:panelGroup>
+								<p:commandLink class="link" onclick="PF('dlg2').show();">#{pdmssMsg['pdmss-message.ADCD_9']}	
+							</p:commandLink>
+								<p:inputText id="dcd" />
+								<p:spacer width="50px" />
+
+								<p:commandLink class="link" onclick="PF('dlg2').show();">#{pdmssMsg['pdmss-message.BULKANANET_8']}	
+							</p:commandLink>
+								<p:inputText id="fisYr" />
+								<p:spacer width="50px" />
+
+								<p:commandLink class="link" onclick="PF('dlg2').show();">#{pdmssMsg['pdmss-message.SEARCHPROJ_9']}	
+							</p:commandLink>
+								<p:inputText id="wpnId" />
+							</h:panelGroup>
+
+							<h:selectManyCheckbox
+								style="text-align: center; position: relative; left:120px;"
+								id="selectManyCheckbox" value="">
+								<f:selectItem
+									itemLabel="#{pdmssMsg['pdmss-message.SEARCHPROJ_7']}" />
+								<f:selectItem
+									itemLabel="#{pdmssMsg['pdmss-message.BULKANANET_9']}" />
+								<f:selectItem
+									itemLabel="#{pdmssMsg['pdmss-message.BULKANANET_10']}" />
+								<f:selectItem
+									itemLabel="#{pdmssMsg['pdmss-message.SEARCHPROJ_6']}" />
+							</h:selectManyCheckbox>
+							<p:commandButton style="width:120px;" class="btn"
+								value="#{pdmssMsg['pdmss-message.findNetworks']}">
+							</p:commandButton>
+						</h:panelGrid>
+					</p:fieldset>
+					<h:panelGroup>
+						<legend>
+							<p:spacer height="10px" />
+							<h:outputText
+								style="text-align: center; position: relative; left:575px;"
+								class="boldText"
+								value="#{pdmssMsg['pdmss-message.BULKANANET_11']}" />
+						</legend>
+						<p:spacer height="10px" />
+						<h:outputText class="boldText"
+							value="#{pdmssMsg['pdmss-message.BULKANANET_12']}" />
+						<br />
+						<p:spacer height="20px" />
+						<p:inputTextarea id="SerName" rows="8" cols="300" queryDelay="100"
+							minQueryLength="1" />
+							
+					</h:panelGroup>
+					
+					<h:panelGrid  columns="3" cellpadding="1" cellspacing="1" >
+						
+						<p:commandButton style="width:120px; margin-left:100px" class="btn"
+							value="#{pdmssMsg['pdmss-message.addSelected']}">
+						</p:commandButton>
+						<p:spacer width="50px" />
+						<p:commandButton style="width:120px; margin-left:200px" class="btn "
+							value="#{pdmssMsg['pdmss-message.removeSelected']}">
+						</p:commandButton>
+					</h:panelGrid>
+
+					<h:panelGroup>
+						<legend>
+							<p:spacer height="10px" />
+							<h:outputText
+								style="text-align: center; position: relative; left:575px;"
+								class="boldText"
+								value="#{pdmssMsg['pdmss-message.BULKANANET_13']}" />
+						</legend>
+						<p:spacer height="20px" />
+						<h:outputText class="boldText"
+							value="#{pdmssMsg['pdmss-message.BULKANANET_12']}" />
+						<br />
+						<p:spacer height="10px" />
+						<p:inputTextarea id="SerName2" rows="8" cols="300"
+							queryDelay="100" minQueryLength="1" />
+						<p:spacer height="5px" />
+
+					</h:panelGroup>
+					<p:spacer height="10px" />
+
+					<legend>
+						<h:outputText
+							style="text-align: center; position: relative; left:575px;"
+							class="boldText"
+							value="#{pdmssMsg['pdmss-message.BULKANANET_15']}" />
+					</legend>
+
+					<h:panelGroup
+						style="text-align: center; position: relative; left:500px;">
+						<h:selectManyCheckbox id="selectManyCheckbox2" value="">
+							<f:selectItem
+								itemLabel="#{pdmssMsg['pdmss-message.BULKANANET_16']}" />
+							<f:selectItem
+								itemLabel="#{pdmssMsg['pdmss-message.BULKANANET_17']}" />
+							<f:selectItem
+								itemLabel="#{pdmssMsg['pdmss-message.BULKANANET_18']}" />
+						</h:selectManyCheckbox>
+						<h:selectOneRadio id="analysisTypeRadio" value=" ">
+							<f:selectItem
+								itemLabel="#{pdmssMsg['pdmss-message.BULKANANET_19']}" />
+							<f:selectItem
+								itemLabel="#{pdmssMsg['pdmss-message.BULKANANET_20']}" />
+						</h:selectOneRadio>
+						<br />
+						<h:panelGroup
+							style="text-align: center; position: relative; left: -120px;">
+							<h:outputLabel value="#{pdmssMsg['pdmss-message.BULKANANET_21']}"></h:outputLabel>
+							<p:spacer width="5px" />
+							<p:inputText id="sumStartDt" />
+							<p:spacer width="5px" />
+							<h:outputLabel value="#{pdmssMsg['pdmss-message.BULKANANET_22']}"></h:outputLabel>
+							<p:spacer width="5px" />
+							<p:inputText id="sumEndDt" />
+						</h:panelGroup>
+						<br />
+						<p:spacer height="20px" />
+						<p:commandButton style="width:120px;" class="btn"
+							value="#{pdmssMsg['pdmss-message.process']}">
+						</p:commandButton>
+						<p:commandButton style="width:120px;" class="btn"
+							value="#{pdmssMsg['pdmss-message.cancel']}">
+						</p:commandButton>
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+					</h:panelGroup>
+				</p:fieldset>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</h:html>

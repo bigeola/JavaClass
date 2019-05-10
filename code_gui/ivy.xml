@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+	<info organisation="" module="code_gui" status=""/>
+	<dependencies>
+		<dependency org="org.apache.poi" name="poi" rev="3.9" conf="*->default"/>
+		<dependency org="org.apache.poi" name="poi-ooxml" rev="3.9" conf="*->default">
+			<exclude org="stax" module="stax-api"/>
+		</dependency>
+		<dependency org="org.apache.commons" name="commons-csv" rev="1.0" conf="*->default"/>
+		<dependency org="commons-logging" name="commons-logging" rev="1.2" conf="*->default"/>
+		<dependency org="log4j" name="log4j" rev="1.2.17" conf="*->default"/>
+		<dependency org="net.sourceforge.jbizmo" name="jbizmo-commons" rev="2.6.0" conf="*->default"/>
+		<dependency org="net.sourceforge.jbizmo" name="jbizmo-commons-richclient" rev="2.6.0" conf="*->default"/>
+	</dependencies>
+</ivy-module>

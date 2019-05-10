@@ -1,0 +1,323 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script type="text/javascript" src="js/util.js"></script>
+	<script type="text/javascript" src="js/jsCode.js"></script>
+	<link
+		href="${facesContext.externalContext.requestContextPath}/css/style.css"
+		rel="stylesheet" type="text/css" />
+	<style>
+ul.ui-menu-child {
+	width: 575px !important;
+}
+</style>
+	<link
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+		rel="stylesheet"></link>
+</h:head>
+<h:body>
+	<div id="pageHeader" align="center">
+		<h:form
+			style=" font-family: Arial, Helvetica, sans-serif;  font-size: 8pt; color: #ff0000; background-color: white;">
+
+			<table style="width: 120%">
+				<tr style="height: 18px; text-align: center; position: relative;">
+					<td><p:menubar
+							style="height:18px; text-align: center; position: relative; margin-top: -15px;">
+							<p:submenu label="Project">
+								<p:menuitem value="Search Projects" action="Home"  url="/xhtml/projects/search_projects.xhtml" />
+								<p:menuitem value="Create Project" url="/xhtml/projects/create_project.xhtml" />
+								<p:menuitem value="Copy Project" url="#" />
+								<p:menuitem value="Mass Copy Projects" url="#" />
+								<p:menuitem value="Bulk Analyze Projects" url="/xhtml/projects/bulkAnalyzeNetework.xhtml" />
+								<p:menuitem value="High Fidelity What-if" url="#" />
+								<p:menuitem value="Weapon System Dashboard" url="#" />
+							</p:submenu>
+							<p:submenu label="Maintenance">
+								<p:menuitem value="List Of Weapon Systems" url="/xhtml/maintenance/listWeaponSystems.xhtml" />
+								<p:menuitem value="List MDS" url="#" />
+								<p:menuitem value="List DCDs" url="/xhtml/maintenance/listOfDCDs.xhtml" />
+								<p:menuitem value="List Of Classic Facilities"
+									url="/xhtml/maintenance/listFacilities.xhtml" />
+								<p:menuitem value="List Of Calendars" url="#" />
+								<p:menuitem value="List Override Reason Codes" url="#" />
+								<p:menuitem value="List Skills Yield Factors" url="#" />
+								<p:menuitem value="List Of DCD Lists" url="#" />
+								<p:menuitem value="List Of Multi-Skill Mappings" url="#" />
+								<p:menuitem value="List Of Tools" url="#" />
+								<p:menuitem value="List Of Tool Categories" url="#" />
+								<p:menuitem value="List Of Resource Pools" url="#" />
+								<p:menuitem value="List Of Resourced Facilities" url="#" />
+								<p:menuitem value="List Of Flows" url="#" />
+								<p:menuitem value="List Of Unnamed Personnel" url="#" />
+								<p:menuitem
+									value="List Of Unnamed Personnel with Deactivated Skills"
+									url="#" />
+							</p:submenu>
+							<p:submenu label="Master Operations">
+								<p:menuitem value="Contents" action="greetings"
+									rendered="#{PersonBean1.role eq 'Admin'}" ajax="true" />
+								<p:menuitem value="Search Master Operations" url="#" />
+								<p:menuitem value="Create Master Operation" url="#" />
+								<p:menuitem value="Copy Master Operation" url="#" />
+								<p:submenu label="Mass Change">
+									<p:menuitem value="Mass Change Master Operations" />
+									<p:menuitem value="Copy Master Operation Network" />
+								</p:submenu>
+								<p:menuitem value="Search Invalid Master Operations" url="#" />
+								<p:menuitem value="Search WMD" url="#" />
+							</p:submenu>
+							<p:submenu label="Search TAA">
+								<p:menuitem value="Search TAA Transactions" url="#" />
+							</p:submenu>
+
+							<p:submenu label="Reports">
+								<p:submenu label="Master Operations Reports">
+									<p:menuitem value="Deleted Operations Report" />
+									<p:menuitem value="Network Operations Interrogation Report" />
+									<p:menuitem value="Major Job Operations Interrogation Report" />
+									<p:menuitem
+										value="MDS/Project Operation Detail Description Report" />
+									<p:menuitem
+										value="Work Category/Configuration Code Cross-Reference Report" />
+									<p:menuitem value="Net Standard Hour Change Report" />
+									<p:menuitem value="Work Category Interrogation Report" />
+									<p:menuitem value="Work Specification Summary Report" />
+									<p:menuitem value="Work Category Summary Report" />
+									<p:menuitem value="Routed Item Report" />
+									<p:menuitem value="Operation Detail Description Report" />
+									<p:menuitem value="Stuffer Data Report" />
+									<p:menuitem value="Method Resource Standards Report" />
+									<p:menuitem value="MDS/Operation Report" />
+									<p:menuitem value="Unused Master Operation Report" />
+									<p:menuitem value="Resolve Selected Operation Changes Report" />
+									<p:menuitem value="Master Operation TCTO Report" />
+									<p:menuitem value="Master Operations % Sequenced" />
+									<p:menuitem value="Tools to Template Facility Flow" />
+								</p:submenu>
+								<p:submenu label="WMD Reports">
+									<p:menuitem value="Work Measurement Aging Chart Report" />
+									<p:menuitem value="Work Measurement History Report" />
+									<p:menuitem value="Work Measurement Operation Exclusion Report" />
+									<p:menuitem value="Work Measurement Status Chart Report" />
+									<p:menuitem value="Work Measurement Status Schedule Report" />
+									<p:menuitem value="Work Measurement Variance Report" />
+									<p:menuitem
+										value="Operation Occurence Factor Analysis and Report" />
+								</p:submenu>
+								<p:submenu label="DCD Reports">
+									<p:menuitem value="Production Number Summary Report" />
+									<p:menuitem value="Networked and Statused Aircraft Report" />
+									<p:menuitem value="Active Projects Report" />
+									<p:menuitem value="Project Status Report" />
+									<p:menuitem value="AMREP report" />
+									<p:menuitem value="Earned Hour Reconcialation Report" />
+									<p:menuitem value="MDS/Project Negotiated Hour Status Report" />
+									<p:menuitem value="MDS/Project Serial Number Status Report" />
+									<p:menuitem
+										value="MDS/Project Skill Requirements and Status Report" />
+									<p:menuitem value="Active Aircraft Hot List Report" />
+									<p:menuitem value="Fleet Tail Breakdown Report" />
+									<p:menuitem value="Skills Analysis Report" />
+									<p:menuitem value="Fever Charts" />
+								</p:submenu>
+								<p:submenu label="Project Reports">
+									<p:menuitem value="Work Requirements Summary Notice Report" />
+									<p:menuitem value="Planned Project Schedule Report" />
+									<p:menuitem value="Baseline Schedule Report" />
+									<p:menuitem value="Project Status Grant Report" />
+									<p:menuitem value="Schedule Performance Line Chart Report" />
+									<p:menuitem value="Critical Path Network Report" />
+									<p:menuitem value="Critical Path Grant Report" />
+									<p:menuitem value="Schedule Logic Diagram Report" />
+									<p:menuitem value="Network Template Data Query Report" />
+									<p:menuitem value="Network Job Flow Grant Report" />
+									<p:menuitem value="Project Serial Number History Report" />
+									<p:menuitem value="Schedule Of Events Report" />
+									<p:menuitem
+										value="Workload Simulation Selected Operations Summary Report" />
+									<p:menuitem value="Resolve Selected Operation Chnages Report" />
+									<p:menuitem value="Track Flow Chart Report" />
+									<p:menuitem value="Aircraft Dashboard" />
+									<p:menuitem value="Resource Requirement by Aircraft" />
+								</p:submenu>
+								<p:submenu label="Network Reports">
+									<p:menuitem value="Total Hours Production Completed Report" />
+									<p:menuitem value="Weapon System Late Hours Report" />
+									<p:menuitem value="MWR Hours Report" />
+									<p:menuitem value="Major Event Status Report" />
+								</p:submenu>
+								<p:submenu label="Major Job Reports">
+									<p:menuitem value="Major Job Status Report" />
+									<p:menuitem value="Major Jobs and Operations Report" />
+									<p:menuitem value="Major Job Info Report" />
+								</p:submenu>
+								<p:submenu label="Selected Operations Reports">
+									<p:menuitem value="Daily Qualification Problems Report" />
+									<p:menuitem value="Project Selected Operations Report" />
+									<p:menuitem value="Selected Operartions Report" />
+									<p:menuitem value="Selected Operartions Summary Report" />
+									<p:menuitem value="Routed Item Listing Report" />
+									<p:menuitem value="TAA Errors Report" />
+									<p:menuitem value="Selected Operartions Actual Hours Report" />
+									<p:menuitem value="Selected Operations Production Count Report" />
+									<p:menuitem value="Selected Operations Variance Report" />
+									<p:menuitem value="Selected Operations TCTO Report" />
+									<p:menuitem value="Selected Operations Worker Status Report" />
+									<p:menuitem value="Selected Operation Overrun" />
+									<p:menuitem value="Prioritized Selected Operations" />
+									<p:menuitem value="Tools to Facility Flow" />
+								</p:submenu>
+								<p:submenu label="Material Reports">
+									<p:menuitem value="Material Order Status Report" />
+									<p:menuitem value="G005M to G097 Operations Comparison Report" />
+									<p:menuitem value="G097 to G005m Operations Comparison Report" />
+									<p:menuitem value="G005M BCM Report" />
+									<p:menuitem value="Material Requirement List Report" />
+								</p:submenu>
+								<p:submenu label="Track Reports">
+									<p:menuitem value="Find Track by Operation Report" />
+									<p:menuitem value="Progress by Single Group" />
+									<p:menuitem value="Track vs Missing Major Job" />
+									<p:menuitem value="Track vs Comlex Selected Operations" />
+									<p:menuitem value="Track vs Missing Selected Operation" />
+									<p:menuitem value="Progress Reports By Track" />
+									<p:menuitem value="Track vs Master Operation" />
+								</p:submenu>
+								<p:submenu label="Resource Reports">
+									<p:menuitem value="What-If Resource Pool Diff Report" />
+									<p:menuitem value="Resource Requirement by Day" />
+									<p:menuitem value="Resource Requirement by Set Op" />
+									<p:menuitem value="Resource Requirement by Aircraft" />
+									<p:menuitem value="Resource Requirements by Skill" />
+									<p:menuitem value="Monthly Resource ForeCast" />
+									<p:menuitem value="Shift Resource Loading" />
+								</p:submenu>
+							</p:submenu>
+
+							<p:submenu label="Administration">
+								<p:submenu label="Security Maintenance">
+									<p:menuitem value="Person" />
+									<p:menuitem value="Position" />
+									<p:menuitem value="Application Log History" />
+									<p:menuitem value="Associate Person/Position" />
+									<p:menuitem value="User" />
+									<p:menuitem value="Access Group" />
+									<p:menuitem value="Associate User/Access Group" />
+									<p:menuitem value="Associate User/Position" />
+									<p:menuitem value="Module" />
+									<p:menuitem value="Application Log" />
+									<p:menuitem value="Purge Log" />
+									<p:menuitem value="Work Crew" />
+									<p:menuitem value="Web Menu Item" />
+									<p:menuitem value="Web Menu Item Link" />
+									<p:menuitem value="Web Menu Access Group" />
+									<p:menuitem value="Field Level Access" />
+
+								</p:submenu>
+								<p:submenu label="Support Data Maintenance">
+									<p:menuitem value="Error Messages" />
+									<p:menuitem value="Rank Category" />
+									<p:menuitem value="Telephone Number Category" />
+								</p:submenu>
+								<p:menuitem value="WMD Preferences" url="#" />
+								<p:menuitem value="Search Employees" url="#" />
+								<p:menuitem value="Insert Employee" url="#" />
+								<p:menuitem value="Supervisor Editor" url="#" />
+								<p:menuitem value="Daily Resource Assignment Editor" url="#" />
+							</p:submenu>
+
+							<p:submenu label="Help">
+								<p:menuitem value="About" />
+								<p:menuitem value="Contents and Index" />
+							</p:submenu>
+							<f:facet name="options">
+								<h:outputText value="Logged in as : " />
+								<h:outputText value="#{PersonBean1.name}">
+								</h:outputText>
+							</f:facet>
+						</p:menubar></td>
+				</tr>
+				<tr>
+					<td><p:toolbar
+							style="height:22px; margin: 0; padding: 0; margin-top:-10px;">
+							<f:facet name="left">
+								<h:commandButton class="tb1" type="button"
+									image="/images/exitapp.png" />
+								<p:spacer width="6" hiegth="0" />
+
+								<h:commandButton class="tb1" type="button"
+									image="/images/close.png" />
+								<p:spacer width="6" hiegth="0" />
+
+								<h:commandButton class="tb1" type="button"
+									image="/images/print.png" />
+
+
+
+
+								<span class="ui-separator"> <span
+									class="ui-icon ui-icon-grip-dotted-vertical" />
+								</span>
+								<span class="ui-separator"> <span
+									class="ui-icon ui-icon-grip-dotted-vertical" />
+								</span>
+
+
+								<p:spacer width="6" hiegth="0" />
+								<p:commandButton type="button" title="Save" class="tb2"
+									icon="fa fa-fw fa-step-backward" />
+								<p:spacer width="6" hiegth="0" />
+								<p:commandButton type="button" title="Print" class="tb2"
+									icon="fa fa-fw fa-caret-left" />
+								<p:spacer width="6" hiegth="0" />
+								<p:commandButton type="button" title="Print" class="tb2"
+									icon="fa fa-fw fa-caret-right" />
+								<p:spacer width="6" hiegth="0" />
+								<p:commandButton type="button" title="Delete" class="tb2"
+									icon="fa fa-fw fa-step-forward" />
+
+								<span class="ui-separator"> <span
+									class="ui-icon ui-icon-grip-dotted-vertical" />
+								</span>
+
+								<h:commandButton class="tb1" type="button"
+									image="/images/exitapp.png" />
+								<p:spacer width="6" hiegth="0" />
+								<h:commandButton class="tb1" type="button"
+									image="/images/close.png" />
+								<p:spacer width="6" hiegth="0" />
+								<h:commandButton class="tb1" type="button"
+									image="/images/print.png" />
+								<p:spacer width="6" hiegth="0" />
+								<h:commandButton class="tb1" type="button"
+									image="/images/print.png" />
+							</f:facet>
+
+							<f:facet name="right">
+								<p:menuButton value="Options">
+									<p:menuitem value="Save" actionListener="#{toolbarView.save}"
+										icon="ui-icon-disk" />
+									<p:menuitem value="Update"
+										actionListener="#{toolbarView.update}"
+										icon="ui-icon-arrowrefresh-1-w" />
+									<p:menuitem value="Delete"
+										actionListener="#{toolbarView.delete}" ajax="false"
+										icon="ui-icon-close" />
+									<p:menuitem value="Homepage" url="http://www.primefaces.org"
+										icon="ui-icon-extlink" />
+								</p:menuButton>
+							</f:facet>
+
+						</p:toolbar></td>
+				</tr>
+
+			</table>
+
+		</h:form>
+	</div>
+</h:body>
+</h:html>
